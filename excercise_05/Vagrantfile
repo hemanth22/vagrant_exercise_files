@@ -1,0 +1,8 @@
+Vagrant.configure("2") do |config|
+  config.vm.box = "bitroid/rockylinux9"
+  config.vm.box_version = "6.0.0"
+  config.vm.provision "shell", path: "bootstrap.sh"
+  config.vm.hostname = "bitroid"
+  config.vm.network "private_network", ip: "193.16.16.100"
+  config.vm.network "forwarded_port", guest: 80, host: 8080
+end
